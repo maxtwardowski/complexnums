@@ -12,6 +12,11 @@ int main(int argc, char const *argv[]) {
 		b * 5
 		5 * b
 	*/
+
+	Complex a(5, 3), b(5, 3);
+
+	cout << (a == b) << endl;
+
 	return 0;
 }
 

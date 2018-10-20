@@ -71,8 +71,10 @@ Complex & Complex::operator/= (const Complex & s) {
 	return *this;
 }
 
-Complex & Complex::operator== (const Complex & s) {
-	return *this;
+bool Complex::operator== (const Complex s) {
+	if (s.real == this->real && s.imag == this->imag)
+		return true;
+	return false;
 }
 
 Complex & Complex::operator<< (const Complex & s) {

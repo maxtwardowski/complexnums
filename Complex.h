@@ -20,6 +20,6 @@ public:
 	Complex &operator-= (const Complex & s);
 	Complex &operator*= (const Complex & s);
 	Complex &operator/= (const Complex & s);
-	Complex &operator== (const Complex & s);
+	bool operator== (const Complex s);
 	Complex &operator<< (const Complex & s);
 };
