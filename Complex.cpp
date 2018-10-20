@@ -48,8 +48,13 @@ Complex Complex::operator+ (const Complex & s) {
 	);
 }
 
-Complex & Complex::operator- (const Complex & s) {
-	return *this;
+Complex Complex::operator- (const Complex & s) {
+	return (
+		Complex(
+			this->real - s.real,
+			this->imag - s.imag
+		)
+	);
 }
 
 Complex & Complex::operator* (const Complex & s) {

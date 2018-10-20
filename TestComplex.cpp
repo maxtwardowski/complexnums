@@ -13,10 +13,10 @@ int main(int argc, char const *argv[]) {
 		5 * b
 	*/
 
-	Complex a(5, 3), b(5, 3);
+	Complex a(7, 1), b(5, 3);
 
 	Complex c;
-	c = a + b;
+	c = a - b;
 	cout << "C real: " << c.getReal() << endl;
 	cout << "C imag: " << c.getImag() << endl;
 	return 0;
