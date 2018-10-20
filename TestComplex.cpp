@@ -15,8 +15,10 @@ int main(int argc, char const *argv[]) {
 
 	Complex a(5, 3), b(5, 3);
 
-	cout << (a == b) << endl;
-
+	Complex c;
+	c = a + b;
+	cout << "C real: " << c.getReal() << endl;
+	cout << "C imag: " << c.getImag() << endl;
 	return 0;
 }
 

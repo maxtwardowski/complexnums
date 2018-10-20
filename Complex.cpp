@@ -39,8 +39,13 @@ double Complex::getPhase() {
 	return pow(tan(this->imag / this->real), -1);
 }
 
-Complex & Complex::operator+ (const Complex & s) {
-	return *this;
+Complex Complex::operator+ (const Complex & s) {
+	return (
+		Complex(
+			this->real + s.real,
+			this->imag + s.imag
+		)
+	);
 }
 
 Complex & Complex::operator- (const Complex & s) {
