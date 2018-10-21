@@ -1,4 +1,5 @@
 #pragma once
+using namespace std;
 
 class Complex {
 private:
@@ -14,12 +15,16 @@ public:
 	double getPhase();
 	Complex operator+ (const Complex & s);
 	Complex operator- (const Complex & s);
-	Complex &operator* (const Complex & s);
-	Complex &operator/ (const Complex & s);
+	Complex operator* (const Complex & s);
+	Complex operator/ (const Complex & s);
 	Complex &operator+= (const Complex & s);
 	Complex &operator-= (const Complex & s);
 	Complex &operator*= (const Complex & s);
 	Complex &operator/= (const Complex & s);
 	bool operator== (const Complex s);
-	Complex &operator<< (const Complex & s);
+	friend ostream & operator << (ostream & s, const Complex & c) {
+		s << "Re: " << c.real << ", Im: " << c.imag;
+		return s;
+	}
+	void print();
 };

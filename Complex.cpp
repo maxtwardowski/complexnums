@@ -20,7 +20,7 @@ Complex::Complex(double real) {
 }
 
 Complex::~Complex() {
-	cout << "Object has been destroyed" << endl;
+	//cout << "Object has been destroyed" << endl;
 }
 
 double Complex::getReal() {
@@ -40,53 +40,54 @@ double Complex::getPhase() {
 }
 
 Complex Complex::operator+ (const Complex & s) {
-	return (
-		Complex(
-			this->real + s.real,
-			this->imag + s.imag
-		)
-	);
+	return Complex(*this) += s;
 }
 
 Complex Complex::operator- (const Complex & s) {
-	return (
-		Complex(
-			this->real - s.real,
-			this->imag - s.imag
-		)
-	);
+	return Complex(*this) -= s;
 }
 
-Complex & Complex::operator* (const Complex & s) {
-	return *this;
+Complex Complex::operator* (const Complex & s) {
+	return Complex(*this) *= s;
 }
 
-Complex & Complex::operator/ (const Complex & s) {
-	return *this;
+Complex Complex::operator/ (const Complex & s) {
+	return Complex(*this) /= s;
 }
 
 Complex & Complex::operator+= (const Complex & s) {
+	this->real += s.real;
+	this->imag += s.imag;
 	return *this;
 }
 
 Complex & Complex::operator-= (const Complex & s) {
+	this->real -= s.real;
+	this->imag -= s.imag;
 	return *this;
 }
 
 Complex & Complex::operator*= (const Complex & s) {
+	double newreal = this->real * s.real - this->imag * s.imag;
+	double newimag = this->real * s.imag + this->imag * s.real;
+	this->real = newreal;
+	this->imag = newimag;
 	return *this;
 }
 
 Complex & Complex::operator/= (const Complex & s) {
-	return *this;
+	Complex conjugate = Complex(s.real, -s.imag);
+	Complex numerator = Complex(*this) * conjugate;
+    double denominator = s.real * s.real + s.imag * s.imag;
+    this->real = numerator.real / denominator;
+    this->imag = numerator.imag / denominator;
+    return *this;
 }
 
 bool Complex::operator== (const Complex s) {
-	if (s.real == this->real && s.imag == this->imag)
-		return true;
-	return false;
+	return (s.real == this->real && s.imag == this->imag) ? true : false;
 }
 
-Complex & Complex::operator<< (const Complex & s) {
-	return *this;
+void Complex::print() {
+	cout << "Re: " << this->getReal() << ", Im: " << this->getImag() << endl;
 }
