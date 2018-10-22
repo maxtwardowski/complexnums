@@ -27,5 +27,8 @@ public:
 		s << "Re: " << c.real << ", Im: " << c.imag;
 		return s;
 	}
+	friend Complex operator+ (double num, const Complex & s) {
+		return Complex(s.real + num, s.imag);
+	}
 	void print();
 };

@@ -63,11 +63,15 @@ int main(int argc, char const *argv[]) {
 	cout << "f --> ";
 	cout << f << endl; // should be f = 5 + 6i*/
 
-	Complex g(7, 8), h;
+	Complex g(7, 8), h, i;
 	h = g + 7;
+	i = 7 + g;
 	cout << "h = g + 7" << endl;
 	cout << "h --> ";
 	cout << h << endl;
+	cout << "i = 7 + g" << endl;
+	cout << "i --> ";
+	cout << i << endl;
 
 
 	return 0;
