@@ -17,6 +17,7 @@ public:
 	Complex operator+(double num);
 	Complex operator- (const Complex & s);
 	Complex operator* (const Complex & s);
+	Complex operator* (double num);
 	Complex operator/ (const Complex & s);
 	Complex &operator+= (const Complex & s);
 	Complex &operator-= (const Complex & s);
@@ -29,6 +30,9 @@ public:
 	}
 	friend Complex operator+ (double num, const Complex & s) {
 		return Complex(s.real + num, s.imag);
+	}
+	friend Complex operator* (double num, const Complex & s) {
+		return Complex(s.real * num, s.imag * num);
 	}
 	void print();
 };
