@@ -43,6 +43,10 @@ Complex Complex::operator+ (const Complex & s) {
 	return Complex(*this) += s;
 }
 
+Complex Complex:: operator+(double num) {
+	return Complex(this->real + num, this->imag);
+}
+
 Complex Complex::operator- (const Complex & s) {
 	return Complex(*this) -= s;
 }

@@ -2,6 +2,7 @@
 #include "Complex.h"
 using namespace std;
 
+
 int main(int argc, char const *argv[]) {
 	/*
 		a += b += c
@@ -62,8 +63,13 @@ int main(int argc, char const *argv[]) {
 	cout << "f --> ";
 	cout << f << endl; // should be f = 5 + 6i*/
 
+	Complex g(7, 8), h;
+	h = g + 7;
+	cout << "h = g + 7" << endl;
+	cout << "h --> ";
+	cout << h << endl;
+
 
 	return 0;
 }
-
 
