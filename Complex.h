@@ -16,6 +16,7 @@ public:
 	Complex operator+ (const Complex & s);
 	Complex operator+(double num);
 	Complex operator- (const Complex & s);
+	Complex operator- (double num);
 	Complex operator* (const Complex & s);
 	Complex operator* (double num);
 	Complex operator/ (const Complex & s);

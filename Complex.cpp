@@ -51,6 +51,10 @@ Complex Complex::operator- (const Complex & s) {
 	return Complex(*this) -= s;
 }
 
+Complex Complex::operator- (double num) {
+	//return Complex()
+}
+
 Complex Complex::operator* (const Complex & s) {
 	return Complex(*this) *= s;
 }
