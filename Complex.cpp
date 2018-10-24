@@ -52,7 +52,7 @@ Complex Complex::operator- (const Complex & s) {
 }
 
 Complex Complex::operator- (double num) {
-	//return Complex()
+	return Complex(this->real - num, this->imag);
 }
 
 Complex Complex::operator* (const Complex & s) {
@@ -65,6 +65,10 @@ Complex Complex::operator* (double num) {
 
 Complex Complex::operator/ (const Complex & s) {
 	return Complex(*this) /= s;
+}
+
+Complex Complex::operator/ (double num) {
+	return Complex(this->real / num, this->imag / num);
 }
 
 Complex & Complex::operator+= (const Complex & s) {
@@ -88,9 +92,8 @@ Complex & Complex::operator*= (const Complex & s) {
 }
 
 Complex & Complex::operator/= (const Complex & s) {
-	Complex conjugate = Complex(s.real, -s.imag);
-	Complex numerator = Complex(*this) * conjugate;
-    double denominator = s.real * s.real + s.imag * s.imag;
+	Complex numerator = Complex(*this) * s.getConjugate();
+    double denominator = pow(s.real, 2) + pow(s.imag, 2);
     this->real = numerator.real / denominator;
     this->imag = numerator.imag / denominator;
     return *this;
@@ -100,6 +103,6 @@ bool Complex::operator== (const Complex s) {
 	return (s.real == this->real && s.imag == this->imag) ? true : false;
 }
 
-void Complex::print() {
-	cout << "Re: " << this->getReal() << ", Im: " << this->getImag() << endl;
+Complex Complex::getConjugate() const {
+	return Complex(this->real, -this->imag);
 }
