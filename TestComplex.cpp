@@ -4,19 +4,18 @@ using namespace std;
 
 
 int main(int argc, char const *argv[]) {
-	Complex a(1, 2), b(3, 4), c(5, 6);
+	/*Complex a(1, 2), b(3, 4), c(5, 6);
 	a += b += c;
 	cout << "a += b += c" << endl;
 	cout << "a --> " << a << endl; // should be a = 9 + 12i
 	cout << "b --> " << b << endl; // should be b = 8 + 10i
-	cout << "c --> " << c << endl << endl; // should be c = 5 + 6i
-
+	cout << "c --> " << c << endl << endl; // should be c = 5 + 6i*/
 	Complex d(1, 2), e(3, 4), f(5, 6);
 	d *= e *= f;
 	cout << "d += e += f" << endl;
 	cout << "d --> " << d << endl; // should be d = -85 + 20i
 	cout << "e --> " << e << endl; // should be e = -9 + 38i
-	cout << "f --> " << f << endl << endl; // should be f = 5 + 6i*/
+	cout << "f --> " << f << endl << endl; // should be f = 5 + 6i
 
 	Complex g(7, 8), h, i;
 	h = g + 7;

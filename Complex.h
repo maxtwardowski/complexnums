@@ -14,14 +14,6 @@ public:
 	double getImag();
 	double getAmp();
 	double getPhase();
-	Complex operator+ (const Complex & s);
-	Complex operator+(double num);
-	Complex operator- (const Complex & s);
-	Complex operator- (double num);
-	Complex operator* (const Complex & s);
-	Complex operator* (double num);
-	Complex operator/ (const Complex & s);
-	Complex operator/ (double num);
 	Complex &operator+= (const Complex & s);
 	Complex &operator-= (const Complex & s);
 	Complex &operator*= (const Complex & s);
@@ -32,21 +24,16 @@ public:
 		s << "Re: " << c.real << ", Im: " << c.imag;
 		return s;
 	}
-	friend Complex operator+ (double num, const Complex & s) {
-		return Complex(s.real + num, s.imag);
+	friend Complex operator+ (const Complex & num, const Complex & s) {
+		return Complex(num) += s; 
 	}
-	friend Complex operator- (double num, const Complex & s) {
-		return Complex(num - s.real, -s.imag);
+	friend Complex operator- (const Complex & num, const Complex & s) {
+		return Complex(num) -= s;
 	}
-	friend Complex operator* (double num, const Complex & s) {
-		return Complex(s.real * num, s.imag * num);
+	friend Complex operator* (const Complex & num, const Complex & s) {
+		return Complex(num) *= s;
 	}
-	friend Complex operator/ (double num, const Complex & s) {
-		Complex numerator = num * s.getConjugate();
-		double denominator = pow(s.real, 2) + pow(s.imag, 2);
-		return Complex(
-			numerator.real / denominator,
-			numerator.imag / denominator
-		);
+	friend Complex operator/ (const Complex & num, const Complex & s) {
+		return Complex(num) /= s;
 	}
 };

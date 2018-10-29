@@ -36,39 +36,7 @@ double Complex::getAmp() {
 }
 
 double Complex::getPhase() {
-	return pow(tan(this->imag / this->real), -1);
-}
-
-Complex Complex::operator+ (const Complex & s) {
-	return Complex(*this) += s;
-}
-
-Complex Complex:: operator+(double num) {
-	return Complex(this->real + num, this->imag);
-}
-
-Complex Complex::operator- (const Complex & s) {
-	return Complex(*this) -= s;
-}
-
-Complex Complex::operator- (double num) {
-	return Complex(this->real - num, this->imag);
-}
-
-Complex Complex::operator* (const Complex & s) {
-	return Complex(*this) *= s;
-}
-
-Complex Complex::operator* (double num) {
-	return Complex(this->real * num, this->imag * num);
-}
-
-Complex Complex::operator/ (const Complex & s) {
-	return Complex(*this) /= s;
-}
-
-Complex Complex::operator/ (double num) {
-	return Complex(this->real / num, this->imag / num);
+	return atan(this->imag / this->real);
 }
 
 Complex & Complex::operator+= (const Complex & s) {
